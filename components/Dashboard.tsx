@@ -1,3 +1,90 @@
-import Link from 'next/link';import {LayoutDashboard,Package,ShoppingCart,ChartNoAxesCombined,Settings,ExternalLink,Leaf,Bell,Search} from 'lucide-react';
-const links=[['Overview','/dashboard',LayoutDashboard],['Products','/dashboard/products',Package],['Orders','/dashboard/orders',ShoppingCart],['Sales & analytics','/dashboard/sales',ChartNoAxesCombined],['Settings','/dashboard/settings',Settings]] as const;
-export function DashboardShell({children,active}:{children:React.ReactNode,active:string}){return <div className="dashboard"><aside className="dash-sidebar"><Link href="/" className="logo dash-logo">forest<span>mart.</span></Link><div className="dash-store"><div>FM</div><span><b>Forest Mart</b><small>Online store <i/></small></span></div><span className="dash-label">WORKSPACE</span><nav>{links.map(([name,url,Icon])=><Link key={url} href={url} className={active===url?'active':''}><Icon size={18}/>{name}{name==='Orders'&&<b className="nav-count">4</b>}</Link>)}</nav><div className="dash-help"><span>✳</span><b>Need a hand?</b><p>We're here to help you grow your store.</p><Link href="/contact">Visit help center ↗</Link></div><Link href="/" className="view-store"><ExternalLink size={16}/> View storefront</Link></aside><div className="dash-main"><header className="dash-topbar"><div className="dash-search"><Search size={17}/><input placeholder="Search anything..."/></div><div className="dash-top-actions"><button aria-label="Notifications"><Bell size={18}/><i/></button><div className="dash-user"><div>FM</div><span><b>Store Admin</b><small>Owner</small></span></div></div></header><div className="dash-content">{children}</div></div></div>}
+import Link from "next/link";
+import {
+  LayoutDashboard,
+  Package,
+  ShoppingCart,
+  ChartNoAxesCombined,
+  Settings,
+  ExternalLink,
+  Leaf,
+  Bell,
+  Search,
+} from "lucide-react";
+const links = [
+  ["Overview", "/dashboard", LayoutDashboard],
+  ["Products", "/dashboard/products", Package],
+  ["Orders", "/dashboard/orders", ShoppingCart],
+  ["Sales & analytics", "/dashboard/sales", ChartNoAxesCombined],
+  ["Settings", "/dashboard/settings", Settings],
+] as const;
+export function DashboardShell({
+  children,
+  active,
+}: {
+  children: React.ReactNode;
+  active: string;
+}) {
+  return (
+    <div className="dashboard">
+      <aside className="dash-sidebar">
+        <Link href="/" className="logo dash-logo">
+          forest<span>mart.</span>
+        </Link>
+        <div className="dash-store">
+          <div>FM</div>
+          <span>
+            <b>Forest Mart</b>
+            <small>
+              Online store <i />
+            </small>
+          </span>
+        </div>
+        <span className="dash-label">WORKSPACE</span>
+        <nav>
+          {links.map(([name, url, Icon]) => (
+            <Link
+              key={url}
+              href={url}
+              className={active === url ? "active" : ""}
+            >
+              <Icon size={18} />
+              {name}
+              {name === "Orders" && <b className="nav-count">4</b>}
+            </Link>
+          ))}
+        </nav>
+        <div className="dash-help">
+          <span>✳</span>
+          <b>Need a hand?</b>
+          <p>We're here to help you grow your store.</p>
+          <Link href="/contact">Visit help center ↗</Link>
+        </div>
+        <Link href="/" className="view-store">
+          <ExternalLink size={16} /> View storefront
+        </Link>
+      </aside>
+      <div className="dash-main">
+        <header className="dash-topbar">
+          <div className="dash-search">
+            <Search size={17} />
+            <input placeholder="Search anything..." />
+          </div>
+          <div className="dash-top-actions">
+            <button aria-label="Notifications">
+              <Bell size={18} />
+              <i />
+            </button>
+            <div className="dash-user">
+              <div>FM</div>
+              <span>
+                <b>Store Admin</b>
+                <small>Owner</small>
+              </span>
+            </div>
+          </div>
+        </header>
+        <div className="dash-content">{children}</div>
+      </div>
+    </div>
+  );
+}

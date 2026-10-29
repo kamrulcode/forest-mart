@@ -1,4 +1,4 @@
-// File: F:\WebPerSec\forest-mart-nextjs\forest-mart\app\favorites\page.tsx
+// File: F:\WebPerSec\forest-mart\app\favorites\page.tsx
 import * as entry from '../../../../app/favorites/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
