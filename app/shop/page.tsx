@@ -1,0 +1,2 @@
+import {PageIntro,ProductGrid} from '@/components/Site';import {products} from '@/lib/data';
+export default function Shop(){return <div className="wrap"><PageIntro eyebrow="THE GOOD STUFF" title="Shop all the things." description="Thoughtful finds for everyday life. Find something you'll love bringing home."/><div className="shop-toolbar"><span>{products.length} lovely finds</span><select aria-label="Sort products"><option>Featured</option><option>Price: low to high</option><option>Price: high to low</option><option>Top rated</option></select></div><ProductGrid/></div>}
